@@ -4,12 +4,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd 
 import math
-import solar_input,wind_input
+import solar_input, wind_input
 from output import output_loop, checkout
 
 def generate(lat, lon, year):
-    Daily_solar,generation_solar = solar_input.solar(lat, lon, year)
-    Daily_wind,generation_wind = wind_input.wind(lat, lon, year)
+    Daily_solar, generation_solar = solar_input.solar(lat, lon, year)
+    Daily_wind, generation_wind = wind_input.wind(lat, lon, year)
     checkout(lat, lon, year, Daily_solar, Daily_wind)
     return
 

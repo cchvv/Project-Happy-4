@@ -3,10 +3,6 @@ import sscapi
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd 
-import statsmodels.api as sm
-from sklearn import linear_model
-from sklearn.linear_model import LogisticRegression
-import statsmodels.formula.api as smf
 import math
 
 
@@ -15,6 +11,7 @@ def wind(lat, lon, yr):
     lat = str(lat)
     lon = str(lon)
     key = 'CNN87trTlIjPrPURSZM9VEUDnWzKulgUFtUVjUmr'
+    # Declare url string
     url = 'http://developer.nrel.gov/api/wind/srw_aggregate_extract?api_key={APIKEY}&year={YEAR}&lat={LAT}&lon={LON}'.format(LAT=lat, LON=lon, YEAR=year, APIKEY=key);
     import requests
     req = requests.get(url)
@@ -24,16 +21,22 @@ def wind(lat, lon, yr):
     interval = '30'
     df =pd.read_csv(url)
     df = df[:][4:]
+    # Set the time index in the pandas dataframe:
     df = df.set_index(pd.date_range('1/1/{yr}'.format(yr=year), freq=interval+'Min', periods=len(df)))
     from PySSC import PySSC
     system_capacity = 48000
     ssc = PySSC()
+    
+    # Resource inputs for SAM model:
+    # Create SAM compliant object 
     ssc.module_exec_set_print(0)
     dat = ssc.data_create()
     local = os.getcwd()+'/test.csv'
     ssc.data_set_string( dat, b'wind_resource_filename', bytes(local, 'utf-8'));
     ssc.data_set_number( dat, b'wind_resource_shear', 0.14000000059604645 )
     ssc.data_set_number( dat, b'wind_resource_turbulence_coeff', 0.10000000149011612 )
+    # Specify the system Configuration
+    # Set system capacity in MW
     ssc.data_set_number( dat, b'system_capacity', 48000 )
     ssc.data_set_number( dat, b'wind_resource_model_choice', 0 )
     ssc.data_set_number( dat, b'weibull_reference_height', 50 )
@@ -53,6 +56,8 @@ def wind(lat, lon, yr):
     ssc.data_set_number( dat, b'wind_farm_losses_percent', 0 )
     ssc.data_set_number( dat, b'wind_farm_wake_model', 0 )
     ssc.data_set_number( dat, b'adjust:constant', 0 )
+    
+    # execute and put generation results back into dataframe
     mod = ssc.module_create(b'windpower')	
  
     ssc.module_exec_set_print( 0 );     
@@ -78,6 +83,7 @@ def wind(lat, lon, yr):
     Daily = pd.DataFrame(Daily, columns=['generation'])
     Daily_wind = Daily.set_index(pd.date_range('1/1/{yr}'.format(yr=year), freq='1'+'D', periods=365))
     generation_wind = Daily_wind['generation'].sum()
+    # free the memory
     ssc.data_free(dat)
     ssc.module_free(mod)
     os.remove('test.csv')
