@@ -11,7 +11,8 @@ Also, figures of daily solar energy, daily solar energy and daily total energy a
  
 1. Ipython setup.py, it is in directory called `Happy-4`.
 2. Input your longitude, latitude, year.(year:2007-2012, postion:in the United States).
-3. Wait for the output.
+3. Wait for the figues.
+4. Close the windows of figues. The simulated number ratio of solar panels and wind turbines will be printed.
 
 ### Organization of the  project
 
