@@ -6,6 +6,7 @@ import pandas as pd
 import math
 import solar_input, wind_input
 from output import output_loop, checkout
+from geopy.geocoders import Nominatim
 
 def generate(lat, lon, year):
     Daily_solar, generation_solar = solar_input.solar(lat, lon, year)
@@ -14,6 +15,11 @@ def generate(lat, lon, year):
     return
 
 year = int(input("Enter the year，from 2007 to 2012: "))
-lat = float(input("Enter the latitude: "))
-lon = float(input("Enter the longitude: "))
+locat = str(input("Location(address):"))
+
+geolocator = Nominatim()
+location = geolocator.geocode(locat)
+
+lat = location.latitude
+lon = location.longitude
 generate(lat, lon, year)
