@@ -73,7 +73,9 @@ in the same diretory
 ### Reference
 
 [1] System Advisor Model Version 2016.3.14 (SAM 2016.3.14) Website. Simple Efficiency Module. National Renewable Energy Laboratory. Golden, CO. Accessed October 31, 2016. https://sam.nrel.gov/content/simple-efficiency-module.
+
 [2] Blair, N.; Dobos, A.; Freeman, J.; Neises, T.; Wagner, M.; Ferguson, T.; Gilman, P.; Janzou, S. (2014). System Advisor Model, SAM 2014.1.14: General Description. NREL/TP-6A20-61019. National Renewable Energy Laboratory. Golden, CO. Accessed October 31, 2016. http://www.nrel.gov/docs/fy14osti/61019.pdf.
+
 [3] System Advisor Model Version 2016.3.14 (SAM 2016.3.14) User Documentation. Weather File Formats. National Renewable Energy Laboratory. Golden, CO.
 
 
