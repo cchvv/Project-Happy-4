@@ -2,15 +2,15 @@
 ## Happy-4
 
 Happy-4 is a project to find the best way to combine solar and wind energy to get a stable clean energy resource. 
-User can just input the longitude, latitude and year to download the corresponding data of radiation and wind speed automaticly.
+User can just input the position and year to download the corresponding data of radiation and wind speed automaticly.
 Data will be put into the System Advisor Model (SAM) model to simulate the power a solar panel and a wind turbine can provide in a specific place.
 Based on the simulation, this project can return a suitable number ratio of solar panels and wind turbines, and this combination can provide stable energy resource.
-Also, figures of daily solar energy, daily solar energy and daily total energy are given.
+Also, figures of daily solar energy provided a solar panel, daily solar energy provided by a wind turbine and daily total energy are given.
 
 ### How to use
  
 1. Ipython setup.py, it is in directory called `Happy-4`.
-2. Input your longitude, latitude, year.(year:2007-2012, postion:in the United States).
+2. Input your position, year.(year:2007-2012, postion:in the United States).
 3. Wait for the figues.
 4. Close the windows of figues. The simulated number ratio of solar panels and wind turbines will be printed.
 
@@ -33,14 +33,8 @@ The project has the following structure:
          |- wind_input.py
          |- sscapi.py  
       |- tests/
-            |- ...
-      |- doc/
-         |- Makefile
-         |- conf.py
-         |- sphinxext/
-            |- ...
-         |- _static/
-            |- ...
+         |- ...
+      |- doc
       |- LICENSE
 
 
