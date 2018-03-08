@@ -12,12 +12,11 @@ Also, figures of daily solar energy provided a solar panel, daily solar energy p
 
 ### How to use
 
-conda install ipython
-conda install jupyter
-conda install pandas
-conda install scipy
-pip install geopy
-
+       conda install ipython
+       conda install jupyter
+       conda install pandas
+       conda install scipy
+       pip install geopy
  
 1. Ipython setup.py, it is in directory called `Happy-4`.
 2. Input your position, year.(year:2007-2012, postion:in the United States).
