@@ -9,6 +9,7 @@ import math
 import solar_input, wind_input
 from output import output_loop, checkout
 from geopy.geocoders import Nominatim
+import urllib
 
 PACKAGES = find_packages()
 
@@ -75,27 +76,12 @@ All trademarks referenced herein are property of their respective holders.
     year = int(input("Enter the year，from 2007 to 2012: "))
     locat = str(input("Location(address):"))
     
-    geolocator = Nominatim()
-
-    try:
-        geolocator.geocode(locat)
-    except(Exception):
-        pass
-    else:
-        raise Exception("The input location must be in the United States.")     
-    
+    geolocator = Nominatim()    
     location = geolocator.geocode(locat)
     lat = location.latitude
     lon = location.longitude
     
-    if (2007 <= year and year <= 2012):
-        try:
-            generate(lat, lon, year)
-        except(Exception):
-            pass
-        else:
-            raise Exception("The input location must be in the United States.")     
-    
+    if (2007 <= year and year <= 2012):        
         generate(lat, lon, year)
     else:
          print('the year is out of range')

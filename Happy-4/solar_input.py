@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd 
 import math
-
+import requests
 
 def solar(lat, lon, y):
     api_key = 'Mow538glfN0fjR9Sk9RFqnnhuUDm5lxZBcTTqeKK'
@@ -27,6 +27,9 @@ def solar(lat, lon, y):
     mailing_list = 'true'
     # Declare url string
     url = 'http://developer.nrel.gov/api/solar/nsrdb_0512_download.csv?wkt=POINT({lon}%20{lat})&names={year}&leap_day={leap}&interval={interval}&utc={utc}&full_name={name}&email={email}&affiliation={affiliation}&mailing_list={mailing_list}&reason={reason}&api_key={api}&attributes={attr}'.format(year=year, lat=lat, lon=lon, leap=leap_year, interval=interval, utc=utc, name=your_name, email=your_email, mailing_list=mailing_list, affiliation=your_affiliation, reason=reason_for_use, api=api_key, attr=attributes)
+    
+    req = requests.get(url)
+    assert req.status_code == 200, "The download failed, can not find this place's database."# if the download failed, this line will generate an error
     # Return just the first 2 lines to get metadata:
     info = pd.read_csv(url, nrows=1)
     # See metadata for specified properties, e.g., timezone and elevation

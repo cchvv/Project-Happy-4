@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd 
 import math
-
+import requests
 
 def wind(lat, lon, yr):
     year = str(yr)
@@ -13,11 +13,13 @@ def wind(lat, lon, yr):
     key = 'CNN87trTlIjPrPURSZM9VEUDnWzKulgUFtUVjUmr'
     # Declare url string
     url = 'http://developer.nrel.gov/api/wind/srw_aggregate_extract?api_key={APIKEY}&year={YEAR}&lat={LAT}&lon={LON}'.format(LAT=lat, LON=lon, YEAR=year, APIKEY=key);
-    import requests
+    
     req = requests.get(url)
-    assert req.status_code == 200 # if the download failed, this line will generate an error
+    assert req.status_code == 200, "The download failed, can not find this place's database."# if the download failed, this line will generate an error
+    
     with open("test.csv","wb") as f:
         f.write(req.content)
+        
     interval = '30'
     df =pd.read_csv(url)
     df = df[:][4:]
@@ -81,7 +83,7 @@ def wind(lat, lon, yr):
             a = a + df.iloc[int(i*24+j)].values[0]/system_capacity
         Daily.append(a)
     Daily = pd.DataFrame(Daily, columns=['generation'])
-    Daily_wind = Daily.set_index(pd.date_range('1/1/{yr}'.format(yr=year), freq='1'+'D', periods=365))
+    Daily_wind = Daily.set_index(pd.date_range('1/1/{yr}'.format(yr=year), freq='1'+'D', periods=len(Daily)))
     generation_wind = Daily_wind['generation'].sum()
     # free the memory
     ssc.data_free(dat)
