@@ -1,3 +1,5 @@
+packages needed:
+
 numpy
 scipy
 matplotlib
