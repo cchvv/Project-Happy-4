@@ -26,7 +26,7 @@ def checkout(lat, lon, year, Daily_solar, Daily_wind):
         y = 1-x
         a.append(x)
         b.append(y)
-        c.append(output_loop(47.61, -122.34, 2010, x, y, Daily_solar, Daily_wind).std().values[0])
+        c.append(output_loop(lat, lon, year, x, y, Daily_solar, Daily_wind).std().values[0])
     A = pd.DataFrame(a, columns = ['x'])
     B = pd.DataFrame(b, columns = ['y'])
     C = pd.DataFrame(c, columns = ['StandardError'])
@@ -45,8 +45,14 @@ def checkout(lat, lon, year, Daily_solar, Daily_wind):
         b.append(x_value*Daily_solar.iloc[i]['generation'] + y_value*Daily_wind.iloc[i]['generation'])
     final = pd.DataFrame(b, columns = ['generation']) 
     final = final.set_index(pd.date_range('1/1/{yr}'.format(yr=year), freq='1'+'D', periods=len(Daily_solar)))
-  
-
+    
+    average_solar_energy = Daily_solar.sum()/len(Daily_solar)
+    average_wind_energy = Daily_wind.sum()/len(Daily_wind)
+    
+    print('the number ratio of solar panels and wind turbines is %f : %f' %(x_value, y_value))
+    print('the average daily solar energy a solar panel can product is %f kW' %average_solar_energy)
+    print('the average daily windr energy a wind turbine can product is %f kW' %average_wind_energy)
+    
     plt.subplots(figsize = (50,30))
     
     plt.subplot(311)
@@ -67,5 +73,5 @@ def checkout(lat, lon, year, Daily_solar, Daily_wind):
     plt.ylabel('kW')
     plt.title('Daily_solar + Daily_wind')
     plt.show()
-    print('the proportion of system capacities of solar and wind power is %f : %f' %(x_value, y_value))
+    
     return
