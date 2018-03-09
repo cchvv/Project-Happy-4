@@ -1,5 +1,5 @@
 # Project-
-## Happy-4
+## Happy_4
 
 Happy-4 is a project to find the best way to combine solar and wind energy to get a stable clean energy resource. 
 User can just input the position and year to download the corresponding data of radiation and wind speed automatically.
@@ -18,8 +18,8 @@ Also, figures of daily solar energy provided a solar panel, daily solar energy p
     conda install scipy
     pip install geopy
  
-1. Ipython setup.py, it is in directory called `Happy-4`.
-2. Input your position, year.(year: 2007-2012, postion: the United States).
+1. Ipython setup.py, it is in directory called `Happy_4`.
+2. Input your position, year.(Year: 2007-2012   Postion: the United States).
 3. Wait for the figures.
 4. Close the windows of figures. The simulated number ratio of solar panels and wind turbines will be printed.
 
@@ -32,7 +32,7 @@ The project has the following structure:
       |- design/
          |- Software_Design.ipynb
          |- Diagram.png
-      |- Happy-4/
+      |- Happy_4/
          |- __init__.py
          |- ssc.dylib
          |- output.py
@@ -41,24 +41,26 @@ The project has the following structure:
          |- solar_input.py
          |- wind_input.py
          |- sscapi.py  
-      |- tests/
-         |- ...
+         |- test_solar_input.py
+         |- test_wind_input.py
+         |- README.md
       |- doc
+         |- Handbook for SAM
       |- LICENSE
 
 
 ### Module code
 
 We place the module code for solar energy in a file called `solar_input.py` in directory called
-`Happy-4`. This structure is to download the data of radiation of the longitude, latitude and year input by user.
+`Happy_4`. This structure is to download the data of radiation of the longitude, latitude and year input by user.
 The System Advisor Model (SAM) will simulate the daily power provided by a solar panel.
 
 The module code for wind energy is in a file called `wind_input.py` in directory called
-`Happy-4`. This structure is to download the data of radiation of the longitude, latitude and year input by user.
+`Happy_4`. This structure is to download the data of radiation of the longitude, latitude and year input by user.
 The System Advisor Model (SAM) will simulate the daily power provided by a wind turbine.
 
 The module code for output is in a file called `output.py` in directory called
-`Happy-4`. This structure is to find a suitable number ratio of solar panels and wind turbines, 
+`Happy_4`. This structure is to find a suitable number ratio of solar panels and wind turbines, 
 and this combination can provide stable energy resource. Also, figures of daily solar energy, 
 daily solar energy and daily total energy are given.
 
@@ -70,8 +72,14 @@ We do not place any data here, and you need to wait more time according to your 
 
 ### Testing
 
-Testing file is in a file called `test_` in directory called `tests`. You need to put this file and 
-in the same diretory
+Testing file for `solar_input.py` is in a file called `test_solar_input.py` in directory called `tests`. 
+
+Testing file for `wind_input.py` is in a file called `test_wind_input.py` in directory called `tests`. 
+
+Testing file for `output.py` is in a file called `test_potput.py` in directory called `tests`. 
+
+For testing, you need use nosetests in terminal.
+
 
 ### Reference
 
