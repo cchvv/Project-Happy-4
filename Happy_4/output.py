@@ -1,11 +1,7 @@
-import sys, os
-import sscapi
+from Happy_4 import solar_input, wind_input
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-import pandas as pd 
-import math
-import solar_input,wind_input
-
 
 #get the total power dataframe
 def output_loop(lat, lon, year, x, y, df_solar, df_wind):
@@ -35,7 +31,6 @@ def checkout(lat, lon, year, Daily_solar, Daily_wind):
     
     for i in range (len(D)):
         if D.StandardError[i] == D.StandardError.min():
-            index = i
             x_value = D.x[i]
             y_value = D.y[i]
     
