@@ -22,13 +22,24 @@ def test_location_value_input():
         pass
     else:
         raise Exception("cannot get useful info of location ")
-        
-def test_solar_value_output():      
-# check if output of daily solar is right value 
+
+def test_solar_value_output():
+    # check if output of daily solar is right value
     a,b = solar_input.solar(30,-100,2010)
     assert a.iloc[0]['generation']==9.915022276341915,'cannot get right daily solar value'
-#check if output of generation solar is right value
+    #check if output of generation solar is right value
     assert b == 3224.3481877838713,'cannot get right generation solar value'
+
+def test_shape_value_output():
+    #check if out of daily solar has right day value
+    c,d = solar_input.solar(30,-100,2010)
+    assert c.shape == (365, 1),'cannot get all the daily solar value'
+    #check if out of daily solar are dataframe
+    if isinstance(c, pd.DataFrame):
+        pass
+    else:
+        raise Exception('Bad type', 'Not a dataframe')
+    return
 
 def test_shape_value_output():  
 #check if out of daily solar has right day value
