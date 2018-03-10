@@ -1,6 +1,11 @@
 #Created with SAM version 2017.9.5
 import string, sys, struct, os
 from ctypes import *
+
+'''
+SAM simulation for wind energy.
+'''
+
 c_number = c_float # must be c_double or c_float depending on how defined in sscapi.h
 class PySSC:
 	def __init__(self):
