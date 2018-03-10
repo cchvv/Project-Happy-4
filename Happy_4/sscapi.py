@@ -9,6 +9,10 @@
 import string, sys, struct, os, numpy
 from ctypes import *
 
+'''
+SAM simulation for solar energy.
+'''
+
 c_number = c_float # must be c_double or c_float depending on how defined in sscapi.h
 class PySSC:
 
