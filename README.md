@@ -18,10 +18,10 @@ Also, figures of daily solar energy provided a solar panel, daily solar energy p
     conda install scipy
     pip install geopy
  
-1. Ipython setup.py, it is in directory called `Happy_4`.
-2. Input your position, year.(Year: 2007-2012   Postion: the United States).
-3. Wait for the figures.
-4. Close the windows of figures. The simulated number ratio of solar panels and wind turbines will be printed.
+1. Ipython
+2. import Happy_4.
+3. %run setup.py
+4. Input your position, year.(Year: 2007-2012   Postion: the United States).
 
 ### Organization of the  project
 
@@ -29,15 +29,19 @@ The project has the following structure:
 
     Project-Happy-4/
       |- README.md
+      |- ssc.dylib
+      |- ssc.so
+      |- ssc.dll
+      |- requirements.txt
+      |- setup.py
+      |- version.py
       |- design/
          |- Software_Design.ipynb
          |- Diagram.png
       |- Happy_4/
          |- __init__.py
-         |- ssc.dylib
          |- output.py
          |- PySSC.py
-         |- setup.py
          |- solar_input.py
          |- wind_input.py
          |- sscapi.py  
@@ -72,11 +76,8 @@ We do not place any data here, and you need to wait more time according to your 
 
 ### Testing
 
-Testing file for `solar_input.py` is in a file called `test_solar_input.py` in directory called `tests`. 
-
-Testing file for `wind_input.py` is in a file called `test_wind_input.py` in directory called `tests`. 
-
-Testing file for `output.py` is in a file called `test_potput.py` in directory called `tests`. 
+Testing file `test_solar_input.py` for `solar_input.py`, `test_wind_input.py` for `wind_input.py` 
+and `test_potput.py` for `output.py`.
 
 For testing, you need use nosetests in terminal.
 
