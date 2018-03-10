@@ -4,6 +4,11 @@ import numpy as np
 import pandas as pd 
 import requests
 
+'''
+This file contains SAM simulation for wind energy. 
+It can retrun how much energy a wind turbine can product in a specific position. 
+'''
+
 def wind(lat, lon, yr):
     year = str(yr)
     lat = str(lat)
