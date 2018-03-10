@@ -41,6 +41,7 @@ The project has the following structure:
       |- Happy_4/
          |- __init__.py
          |- output.py
+         |- electricity_demand.py
          |- PySSC.py
          |- solar_input.py
          |- wind_input.py
