@@ -1,9 +1,7 @@
-import sys, os
-import sscapi
+import os
+from Happy_4.PySSC import PySSC
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd 
-import math
 import requests
 
 def wind(lat, lon, yr):
@@ -13,7 +11,7 @@ def wind(lat, lon, yr):
     key = 'CNN87trTlIjPrPURSZM9VEUDnWzKulgUFtUVjUmr'
     # Declare url string
     url = 'http://developer.nrel.gov/api/wind/srw_aggregate_extract?api_key={APIKEY}&year={YEAR}&lat={LAT}&lon={LON}'.format(LAT=lat, LON=lon, YEAR=year, APIKEY=key);
-    
+    import requests
     req = requests.get(url)
     assert req.status_code == 200, "The download failed, can not find this place's database."# if the download failed, this line will generate an error
     
@@ -25,7 +23,6 @@ def wind(lat, lon, yr):
     df = df[:][4:]
     # Set the time index in the pandas dataframe:
     df = df.set_index(pd.date_range('1/1/{yr}'.format(yr=year), freq=interval+'Min', periods=len(df)))
-    from PySSC import PySSC
     system_capacity = 48000
     ssc = PySSC()
     
