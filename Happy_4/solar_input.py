@@ -3,6 +3,11 @@ import numpy as np
 import pandas as pd 
 import requests
 
+'''
+This file contains SAM simulation for solar energy. 
+It can retrun how much energy a solar panel can product in a specific position. 
+'''
+
 def solar(lat, lon, y):
     api_key = 'Mow538glfN0fjR9Sk9RFqnnhuUDm5lxZBcTTqeKK'
     # Set the attributes to extract (e.g., dhi, ghi, etc.), separated by commas.
