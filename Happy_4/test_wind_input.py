@@ -26,7 +26,7 @@ def test_location_value_input():
 def test_wind_value_output():      
 # check if output of daily wind is right value 
     a,b = wind_input.wind(30,-100,2010)
-    assert a.iloc[0]['generation']==12.914752,'cannot get right daily wind value'
+    assert a.iloc[0]['generation']==12.914752278645834,'cannot get right daily wind value'
 #check if output of generation solar is right value
     assert b == 4094.263194816311,'cannot get right generation wind value'
 
