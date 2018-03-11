@@ -1,9 +1,11 @@
-import sys, os
-import sscapi
 import numpy as np
 import pandas as pd 
-import solar_input, wind_input
+from Happy_4 import solar_input, wind_input
 
+"""
+check if input year is in the right range, check if input location is in the right range, 
+check if output of daily wind is right value, check if out of daily wind has right day value
+"""
 
 def test_year_value_input():
 # check if input year is in the right range
