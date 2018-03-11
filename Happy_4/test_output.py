@@ -1,12 +1,13 @@
-import sys, os
-import sscapi
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd 
 import math
-import solar_input, wind_input
-from output import output_loop, checkout
+from Happy_4 import solar_input, wind_input
+from Happy_4.output import output_loop, checkout
 from geopy.geocoders import Nominatim
+"""
+check if we can get the total power dataframe, check if the different proportion of system capacities of solar and wind power add equal to 1
+"""
+
 def test_output_loop():
 #check if we can get the total power dataframe
     t,j = solar_input.solar(30,-100,2010)
