@@ -31,10 +31,10 @@ opts = dict(name=NAME,
 
 
 if __name__ == '__main__':
-    def generate(lat, lon):
-        Daily_solar, generation_solar = solar_input.solar(lat, lon)
-        Daily_wind, generation_wind = wind_input.wind(lat, lon)
-        output.checkout(lat, lon, 2019, Daily_solar, Daily_wind)
+    def generate(lat, lon, year):
+        Daily_solar, generation_solar = solar_input.solar(lat, lon, year)
+        Daily_wind, generation_wind = wind_input.wind(lat, lon, year)
+        output.checkout(lat, lon, year, Daily_solar, Daily_wind)
         return
     
     long_description = """
@@ -66,43 +66,15 @@ for usage, and a DISCLAIMER OF ALL WARRANTIES.
 All trademarks referenced herein are property of their respective holders.
 """
     print(long_description)
-    # year = int(input("Enter the year，from 2007 to 2012: "))
-
-    locat = [x for x in input("Locations (addresses):").split(',')]
-    geolocator = Nominatim()
-
-
-    if len(locat) == 1:
-        location = geolocator.geocode(locat[0])
-        lat = location.latitude
-        lon = location.longitude
+    year = int(input("Enter the year，from 2007 to 2012: "))
+    locat = str(input("Location(address):"))
     
-        if (2007 <= year and year <= 2012):
-            try:
-                generate(lat, lon, year)
-            except(Exception):
-                pass
-            else:
-                raise Exception("The input location must be in the United States.")     
+    geolocator = Nominatim()    
+    location = geolocator.geocode(locat)
+    lat = location.latitude
+    lon = location.longitude
     
-            generate(lat, lon, year)
-        else:
-             print('the year is out of range')
-
+    if (2007 <= year and year <= 2012):        
+        generate(lat, lon, year)
     else:
-        for i in range(len(locat)):
-            location = geolocator.geocode(locat[i])
-            lat = location.latitude
-            lon = location.longitude
-    
-            if (2007 <= year and year <= 2012):
-                try:
-                    generate(lat, lon, year)
-                except(Exception):
-                    pass
-                else:
-                    raise Exception("The input location must be in the United States.")     
-    
-                generate(lat, lon, year)
-            else:
-                 print('the year is out of range')
+         print('the year is out of range')
