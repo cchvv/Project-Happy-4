@@ -1,6 +1,6 @@
-toseis-MacBook-Pro:Happy_4 tutu$ nosetests
+taozihao ~/desktop/Project-Happy-4/Happy_4$nosetests
 ..........
 ----------------------------------------------------------------------
-Ran 10 tests in 145.379s
+Ran 10 tests in 207.266s
 
 OK
