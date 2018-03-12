@@ -69,7 +69,7 @@ The module code for output is in a file called `output.py` in directory called
 and this combination can provide stable energy resource. Also, figures of daily solar energy, 
 daily solar energy and daily total energy are given.
 
-The module code for electricity consumption is in a file called 'electricity_demand.py' in directory called 'Happy_4'. This structure is to download the ID for all electric systems in US and get the electricity consumption of specific electric system based on user's input. 
+The module code for electricity consumption is in a file called electricity_demand.py in directory called Happy_4. This structure is to download the ID for all electric systems in US and get the electricity consumption of specific electric system based on user's input. 
 
 ### Project Data
 
