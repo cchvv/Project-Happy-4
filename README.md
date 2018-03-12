@@ -42,6 +42,7 @@ The project has the following structure:
          |- __init__.py
          |- output.py
          |- electricity_demand.py
+         |- id.xlsx
          |- PySSC.py
          |- solar_input.py
          |- wind_input.py
