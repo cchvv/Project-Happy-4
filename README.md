@@ -50,6 +50,7 @@ The project has the following structure:
          |- test_solar_input.py
          |- test_wind_input.py
          |- README.md
+         |- Poster.pdf
       |- doc
          |- Handbook for SAM
       |- LICENSE
