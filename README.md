@@ -2,7 +2,8 @@
 ## Happy_4
 
 Happy-4 is a project to find the best way to combine solar and wind energy to get a stable clean energy resource. 
-User can just input the position and year to download the corresponding data of radiation and wind speed automatically.
+
+User can use this code to download the corresponding data of radiation and wind speed automatically.
 
 Data will be put into the System Advisor Model (SAM) model to simulate the power a solar panel and a wind turbine can provide in a specific place.
 
@@ -17,11 +18,18 @@ Also, figures of daily solar energy provided a solar panel, daily solar energy p
     conda install pandas
     conda install scipy
     pip install geopy
- 
+    
+##### Calcualte the ratio of solar panels and wind turbines.
 1. Ipython
 2. import Happy_4.
 3. %run setup.py
-4. Input your position, year.(Year: 2007-2012   Postion: the United States).
+4. Input your position, year.(Year: 2007-2012   Position: the United States).
+
+##### Calcualte the total number of solar panels and wind turbines needed to meet the electricity demand.
+1. Ipython
+2. import Happy_4.
+3. %run setup2.py
+4. Input your position, and Area of electriciy demand.
 
 ### Organization of the  project
 
@@ -34,23 +42,31 @@ The project has the following structure:
       |- ssc.dll
       |- requirements.txt
       |- setup.py
+      |- setup2.py
       |- version.py
       |- design/
          |- Software_Design.ipynb
          |- Diagram.png
       |- Happy_4/
          |- __init__.py
+         |- average_daily_electricity_demand.py
+         |- average_daily_solarandwind.py
          |- output.py
+         |- output2.py
          |- electricity_demand.py
          |- id.xlsx
          |- PySSC.py
          |- solar_input.py
          |- wind_input.py
-         |- sscapi.py  
+         |- sscapi.py
+         |- test_output.py
          |- test_solar_input.py
          |- test_wind_input.py
          |- README.md
          |- Poster.pdf
+         |- ssc.dylib
+         |- ssc.so
+         |- ssc.dll
       |- doc
          |- Handbook for SAM
       |- LICENSE
@@ -82,7 +98,7 @@ We do not place any data here, and you need to wait more time according to your 
 ### Testing
 
 Testing file `test_solar_input.py` for `solar_input.py`, `test_wind_input.py` for `wind_input.py` 
-and `test_potput.py` for `output.py`.
+and `test_output.py` for `output.py`.
 
 For testing, you need use nosetests in terminal.
 
