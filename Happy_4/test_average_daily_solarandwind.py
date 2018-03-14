@@ -8,7 +8,7 @@ def test_average_daily_solar():
     # check if the data of different year are appended one after one
     daily_solar_total = pd.DataFrame()
     for y in [2007, 2009, 2010, 2011]:
-        daily_solar, generation_solar = solar_input.solar(30, -100, y)
+        daily_solar, generation_solar = solar_input.solar(33.2164, -97.1292, y)
         daily_solar_total = daily_solar_total.append(daily_solar)
     assert (len(daily_solar_total) % 365) == 0, 'The data of years are not collected completely.'
     
@@ -25,7 +25,7 @@ def test_average_daily_wind():
     # check if the data of different year are appended one after one
     daily_wind_total = pd.DataFrame()
     for y in [2007, 2009, 2010, 2011]:
-        daily_wind, generation_wind = wind_input.wind(30, -100, y)
+        daily_wind, generation_wind = wind_input.wind(33.2164, -97.1292, y)
         daily_wind_total = daily_wind_total.append(daily_wind)
     assert (len(daily_wind_total) % 365) == 0, 'The data of years are not collected completely.'
     
