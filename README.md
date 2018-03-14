@@ -1,17 +1,11 @@
 # Project-
 ## Happy_4
 
-Happy-4 is a project to find the best way to combine solar and wind energy to get a stable clean energy resource. 
+Happy-4 is a project to find the best way to combine solar and wind energy in order to achieve a stable clean energy resource.
 
-User can use this code to download the corresponding data of radiation and wind speed automatically.
+Users input a location to download the corresponding data of insolation and wind speed automatically.  Data are put into the simulation models of  System Advisor Model (SAM) to estimate the energy generation of a solar panel and a wind turbine.  Since the results of Dickey Fuller Test show that both the simluated data of solar and wind energy are stationary, the simulated data of years are then processed to acquire averaged daily data for 365 days in a year.  Based on the processed results, this project returns a optimal ratio of solar panels and wind turbines and upon the ratio a stable combinational energy generation resource can be obtained.  The figures of of the generation of a single solar panel and a wind turbine and the combiation of the ratio are provided.
 
-Data will be put into the System Advisor Model (SAM) model to simulate the power a solar panel and a wind turbine can provide in a specific place.
-
-Based on the simulation, this project can return a suitable number ratio of solar panels and wind turbines, and this combination can provide stable energy resource.
-
-Also, figures of daily solar energy provided a solar panel, daily solar energy provided by a wind turbine and daily total energy are given.
-
-It can also be used to calculate the number of solar panels and wind turbines needed to provide enough energy to a specific area.
+Also, anther input from users is the abbreviation of different data bases for electricity demands.  The data electricity demand of are also stationary according to Dickey Fuller Test so a similar process is done to averaged daily data for 365 days in a year.  Along with the information obtained from the energy generation, the numbers of solar panels and wind turbines required to meet the eletiricty demand are then calculated.
 
 ### How to use
 
@@ -20,18 +14,11 @@ It can also be used to calculate the number of solar panels and wind turbines ne
     conda install pandas
     conda install scipy
     pip install geopy
-    
-##### Calcualte the ratio of solar panels and wind turbines.
-1. Ipython
-2. import Happy_4.
-3. %run setup.py
-4. Input your position, year.(Year: 2007-2012   Position: the United States).
-
-##### Calcualte the total number of solar panels and wind turbines needed to meet the electricity demand.
+ 
 1. Ipython
 2. import Happy_4.
 3. %run setup2.py
-4. Input your position, and Area of electriciy demand.
+4. Input a abbreviation (ex:SCL) from the list and then input a location (ex: Seattle,Spokane)
 
 ### Organization of the  project
 
@@ -51,24 +38,24 @@ The project has the following structure:
          |- Diagram.png
       |- Happy_4/
          |- __init__.py
-         |- average_daily_electricity_demand.py
-         |- average_daily_solarandwind.py
          |- output.py
          |- output2.py
          |- electricity_demand.py
+         |- average_daily_electricity_demand.py
          |- id.xlsx
          |- PySSC.py
          |- solar_input.py
          |- wind_input.py
-         |- sscapi.py
-         |- test_output.py
+         |- average_daily_solarandwind.py
+         |- sscapi.py  
          |- test_solar_input.py
          |- test_wind_input.py
+         |- test_average_daily_solarandwind.py
+         |- test_output.py
+         |- test_output2.py
+         |- test_average_daily_electricity_demand.py
          |- README.md
          |- Poster.pdf
-         |- ssc.dylib
-         |- ssc.so
-         |- ssc.dll
       |- doc
          |- Handbook for SAM
       |- LICENSE
@@ -84,12 +71,17 @@ The module code for wind energy is in a file called `wind_input.py` in directory
 `Happy_4`. This structure is to download the data of radiation of the longitude, latitude and year input by user.
 The System Advisor Model (SAM) will simulate the daily power provided by a wind turbine.
 
+The module code for processing solar and wind energy is in a file called `average_daily_solarandwind.py` in directory called
+`Happy_4`. This structure is to collect the simulation data of years for a location input by users and acquire averaged daily data for 365 days in a year.
+
 The module code for output is in a file called `output.py` in directory called
 `Happy_4`. This structure is to find a suitable number ratio of solar panels and wind turbines, 
 and this combination can provide stable energy resource. Also, figures of daily solar energy, 
 daily solar energy and daily total energy are given.
 
-The module code for electricity consumption is in a file called `electricity_demand.py` in directory called `Happy_4`. This structure is to download the ID for all electric systems in US and get the electricity consumption of specific electric system based on user's input. 
+The module code for electricity consumption is in a file called `electricity_demand.py` in directory called `Happy_4`. This structure is to download the ID for all electric systems in US and get the electricity consumption of specific electric system based on user's input.
+
+The module code for processing the electricity demand is in a file called `average_daily_electricity_demand.py` in directory called `Happy_4`. This structure is to collect the electricity demand data of years provided by the government unit  input by users and acquire averaged daily data for 365 days in a year.
 
 ### Project Data
 
@@ -99,8 +91,8 @@ We do not place any data here, and you need to wait more time according to your 
 
 ### Testing
 
-Testing file `test_solar_input.py` for `solar_input.py`, `test_wind_input.py` for `wind_input.py` 
-and `test_output.py` for `output.py`.
+Testing file `test_solar_input.py` for `solar_input.py`, `test_wind_input.py` for `wind_input.py` , `test_average_daily_solarandwind.py` for `average_daily_solarandwind.py` , `test_average_daily_solarandwind.py` for `average_daily_solarandwind.py` , `test_potput.py` for `potput.py`
+and `test_potput2.py` for `output2.py`.
 
 For testing, you need use nosetests in terminal.
 
