@@ -5,11 +5,7 @@ import matplotlib.pyplot as plt
 
 '''
 The file can download wind and solar energy database, and find the best way to combine these two kinds of energy. The result is the ratio of wind and solar energy. With this ratio, the daily total energy has the least standard error.
-
-It also calcualtes the total number of solar panels and wind turbines needed to meet the electricity demand.
-
 '''
-
 #get the total power dataframe
 def output_loop(year, x, y, df_solar, df_wind):
     a = []
@@ -49,7 +45,7 @@ def checkout(locat, year, Daily_solar, Daily_wind, Daily_demand):
     final = final.set_index(pd.date_range('1/1/{yr}'.format(yr=year), freq='1'+'D', periods=len(Daily_solar)))
     
     # make the plot and print infomation
-    plt.figure(figsize=(20,10))
+    fig = plt.figure(figsize=(20,10))
     plt.plot(Daily_solar, label='solar energy')
     plt.plot(Daily_wind, label='wind energy')
     plt.plot(final, label='solar energy + wind energy')
@@ -59,10 +55,11 @@ def checkout(locat, year, Daily_solar, Daily_wind, Daily_demand):
     plt.xticks(['2019-01','2019-03','2019-05','2019-07','2019-09','2019-11','2020-01'],['01','03','05','07','09','11','01'])
     plt.legend(fontsize = 10)
     plt.tick_params(axis='both', which='major', labelsize=10)
-    plt.show()
+    #plt.show()
+    fig.savefig(locat + '.png')
 
     # find the ratio k
-    k = 2000* Daily_demand['demand'].sum() / (x_value * Daily_solar['generation'].sum() + y_value * Daily_wind['generation'].sum())
+    k = 1000* Daily_demand['demand'].sum() / (0.5 * x_value * Daily_solar['generation'].sum() + 1 * y_value * Daily_wind['generation'].sum())
     print(locat + ':')
     print('the ideal ratio for the combination of solar panels and wind turbines is %f : %f' %(x_value, y_value))
     print('the resulting stand error of the combinational generation is %f' % D.StandardError.min()) 
