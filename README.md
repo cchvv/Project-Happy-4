@@ -11,6 +11,8 @@ Based on the simulation, this project can return a suitable number ratio of sola
 
 Also, figures of daily solar energy provided a solar panel, daily solar energy provided by a wind turbine and daily total energy are given.
 
+It can also be used to calculate the number of solar panels and wind turbines needed to provide enough energy to a specific area.
+
 ### How to use
 
     conda install ipython
