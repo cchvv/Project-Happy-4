@@ -3,8 +3,9 @@ import pandas as pd
 import requests
 import numpy as np
 import math
-
-
+'''
+This file can use data from electricity demand to calculate the average daily data.
+'''
 # Create a dataframe of average daily demand of electricty of a chosen area.
 def electricity_demand(input_name):
     

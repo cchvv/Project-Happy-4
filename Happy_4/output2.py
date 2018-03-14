@@ -5,7 +5,11 @@ import matplotlib.pyplot as plt
 
 '''
 The file can download wind and solar energy database, and find the best way to combine these two kinds of energy. The result is the ratio of wind and solar energy. With this ratio, the daily total energy has the least standard error.
+
+It also calcualtes the total number of solar panels and wind turbines needed to meet the electricity demand.
+
 '''
+
 #get the total power dataframe
 def output_loop(year, x, y, df_solar, df_wind):
     a = []

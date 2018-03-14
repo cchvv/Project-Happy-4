@@ -1,9 +1,10 @@
-
 from Happy_4 import solar_input
 from Happy_4 import wind_input
 import pandas as pd
 
-
+'''
+This file can use data from 2007 to 2012 to calculate the average daily data.
+'''
 def leap_year_bool(yr):
     if yr % 4 ==0:
         if yr % 100 ==0:
