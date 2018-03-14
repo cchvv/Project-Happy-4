@@ -7,8 +7,9 @@ from Happy_4 import average_daily_electricity_demand
 from Happy_4 import output2
 
 '''
-It can also be used to calculate the number of solar panels and wind turbines needed to provide enough energy to a specific area.
+It is used to calculate the number of solar panels and wind turbines needed to provide enough energy to a specific area.
 '''
+
 PACKAGES = find_packages()
 
 # Get version and release info, which is all stored in shablona/version.py
