@@ -10,6 +10,7 @@ def electricity_demand(input_name):
     
     # Create a dataframe to store the ID of all electric system 
     df = pd.read_excel('Happy_4/id.xlsx')
+    #df = pd.read_excel('id.xlsx')
     df['URL'] = '0'
     for i in range(len(df['NAME'])):
         df['URL'][i] = 'http://api.eia.gov/series/?series_id=' + df['ID'][i] +'&api_key=dc18856f7f589c8cb34de219b44f58ac&out=json'
@@ -55,4 +56,4 @@ def electricity_demand(input_name):
         return daily_demand_average
     
     else:
-        print('The data of' + input_name + 'is not available.' )
+        raise Exception('The data of ' + input_name + ' is not available.' )
