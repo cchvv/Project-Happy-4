@@ -16,7 +16,7 @@ Also, anther input from users is the abbreviation of different data bases for el
     pip install geopy
  
 1. Ipython
-2. import Happy_4.
+2. import Happy_4
 3. %run setup2.py
 4. Input a abbreviation (ex:SCL) from the list and then input a location (ex: Seattle,Spokane)
 
