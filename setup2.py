@@ -78,7 +78,7 @@ All trademarks referenced herein are property of their respective holders.
     
     area_ed = str(input('Input a abbreviation (ex:SCL) from the list above:'))
     #locat = str(input("Location(address):"))
-    locat = [x for x in input("Locations (addresses):").split(',')]
+    locat = [x for x in input("Locations (addresses, ex: Seattle):").split(',')]
 
     for i in range(len(locat)):
         geolocator = Nominatim()    
