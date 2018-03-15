@@ -76,7 +76,7 @@ All trademarks referenced herein are property of their respective holders.
     
     print(pd.read_excel('Happy_4/id.xlsx')[['NAME','ABBREVIATION']])
     
-    area_ed = str(input('Area of electriciy demand:'))
+    area_ed = str(input('Input a abbreviation (ex:SCL) from the list above:'))
     #locat = str(input("Location(address):"))
     locat = [x for x in input("Locations (addresses):").split(',')]
 
